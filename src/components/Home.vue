@@ -30,7 +30,8 @@ export default{
     li(v-for='i in filteredProducts')
       router-link(:to="'/products/'+i.id")
         p {{i.name}}
-        p {{i.defaultDisplayedPriceFormatted}}
         img(:src='i.thumbnailUrl')
+      .flex.justify-center
+        p {{i.defaultDisplayedPriceFormatted}}
         button(@click='buyProduct(i.id)') Buy
 </template>

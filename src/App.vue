@@ -8,7 +8,7 @@ export default{
   },
   async mounted(){
     this.categories= await this.getData('categories')
-    this.$store.commit('fillCart',this.getLS())
+    this.$store.commit('fillCart',this.getLS() || [])
   }
 }
 </script>
@@ -17,7 +17,7 @@ export default{
 .sticky.top-0
   .navbar
     router-link(to='/') Home
-    p {{cartVol}}
+    router-link(to='/cart') {{cartVol}}
 ul.flex.justify-between.w-64.mx-auto(v-if='categories')
   li(v-for='c in categories')
     router-link(:to="'/categories/'+c.id") {{c.name}}
