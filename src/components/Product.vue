@@ -4,7 +4,7 @@
   p(v-html='item.description')
   img(:src='item.thumbnailUrl')
   p {{item.price}}
-  button Buy
+  button(@click='buyProduct(item.id)') Buy
 </template>
 
 <script>

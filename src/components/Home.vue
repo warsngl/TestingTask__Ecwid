@@ -32,4 +32,5 @@ export default{
         p {{i.name}}
         p {{i.defaultDisplayedPriceFormatted}}
         img(:src='i.thumbnailUrl')
+        button(@click='buyProduct(i.id)') Buy
 </template>

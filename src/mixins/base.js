@@ -16,6 +16,9 @@ export const base={
       let key = this.$route.fullPath.match(/[a-z]/gi)
       key ? key=key.join('')+'Id' : key=''
       return key
+    },
+    cartVol(){
+      return this.$store.state.cart.length
     }
   },
   methods:{
@@ -29,6 +32,15 @@ export const base={
       }) 
       return data
     },
-    
+    buyProduct(id){
+      this.$store.commit('buyProduct',id)
+      this.saveLS(this.$store.state.cart)
+    },
+    saveLS(state){
+      localStorage.setItem('cart',JSON.stringify(state))
+    },
+    getLS(){
+      return JSON.parse(localStorage.getItem('cart'))
+    }
   }
 }
