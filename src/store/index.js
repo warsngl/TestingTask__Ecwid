@@ -12,6 +12,9 @@ export const store = createStore({
     },
     fillCart(state,cart){
       state.cart=cart
+    },
+    deleteProduct(state,id){
+      state.cart.map(p=>p.id!=id)
     }
   }
 })

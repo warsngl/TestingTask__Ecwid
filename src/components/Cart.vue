@@ -1,25 +1,22 @@
 <template lang='pug'>
 ul
-  li(v-for='i in cart')
-    Product(:id='i')
+  li.mb-4.flex.justify-center(v-for="i in cart")
+    Product(:id="i" view=false)
 </template>
 
 <script>
-import Product from "./Product.vue"
+import Product from "./product.vue";
 export default {
-    data: () => ({}),
-    methods: {
-        
+  data: () => ({}),
+  methods: {},
+  computed: {
+    cart() {
+      return this.$store.state.cart;
     },
-    computed:{
-      cart(){
-        return this.$store.state.cart
-      }
-    },
-    components: { Product }
-}
+  },
+  components: { Product },
+};
 </script>
 
 <style>
-
 </style>
