@@ -1,8 +1,24 @@
-<script setup>
+<script>
+export default{
+  data:()=>({
+    categories:[],
+  }),
+  methods:{
+
+  },
+  async mounted(){
+    this.categories= await this.getData('categories')
+  }
+}
 </script>
 
-<template>
-<h1>Template 4 Vite</h1>
+<template lang='pug'>
+h1
+  router-link(to='/') Home
+ul.flex.justify-between.w-64.mx-auto(v-if='categories')
+  li(v-for='c in categories')
+    router-link(:to="'/categories/'+c.id") {{c.name}}
+router-view
 </template>
 
 <style>
@@ -12,6 +28,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
+}
+.router-link-exact-active{
+  text-decoration: underline;
 }
 </style>
