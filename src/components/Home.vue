@@ -28,5 +28,5 @@ export default {
   ul(v-if="items")
     li.mb-8(v-for="i in filteredProducts" :key='i.id')
       router-link(:to="'/products/' + i.id")
-        Product(:id="i.id", view="Home")
+        Product(:id="i.id", :view='true')
 </template>
