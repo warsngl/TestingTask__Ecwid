@@ -24,9 +24,7 @@ export default {
 </script>
 
 <template lang='pug'>
-.px-8
-  ul(v-if="items")
-    li.mb-8(v-for="i in filteredProducts" :key='i.id')
-      router-link(:to="'/products/' + i.id")
-        Product(:id="i.id", :view='true')
+ul.mt-8(v-if="items")
+  li.fc(v-for="i in filteredProducts" :key='i.id' class='mb-2 md:mb-4 lg:mb-8')
+    Product(:id="i.id", :view='true')
 </template>
